@@ -1,24 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Desktop from './components/DesktopLeft'
 import Button from './components/Button'
+import sound from './assets/sound/sound.mp3'
+import React, { useState, useRef, useEffect } from 'react';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState(1);
+  const [isFirstPageUnlocked, setIsFirstPageUnlocked] = useState(false);
+  const audioRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
 
-  const handleNextPage = () => {
-    if (currentPage < 3) {
-      setCurrentPage(prevPage => prevPage + 1);
+  const handleUnlockPage = () => {
+    setIsFirstPageUnlocked(true);
+
+    if (audioRef.current && !isPlaying) {
+      audioRef.current.play().then(() => {
+        setIsPlaying(true);
+      }).catch((error) => {
+        console.error("Error playing audio:", error);
+      });
+    }
+
+  };
+
+  const scrollToPage3 = () => {
+    const page3 = document.getElementById('page-3');
+    if (page3) {
+      page3.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
-  const handlePrevPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(prevPage => prevPage - 1);
-    }
-  };
+  useEffect(() => {
+    const handleScroll = (e) => {
+      if (!isFirstPageUnlocked) {
+        e.preventDefault();
+      }
+    };
+
+    document.body.addEventListener('wheel', handleScroll, { passive: false });
+    document.body.addEventListener('touchmove', handleScroll, { passive: false });
+
+    return () => {
+      document.body.removeEventListener('wheel', handleScroll);
+      document.body.removeEventListener('touchmove', handleScroll);
+    };
+  }, [isFirstPageUnlocked]);
 
   return (
     <div className="App">
@@ -28,18 +53,22 @@ function App() {
         </div>
         <div className="desktop-right">
 
-          <div className="page-1">
-            <div className="cover">
-              <div className="sub-title">
-                <p>WEDDING ANNOUNCEMENT</p>
+        {!isFirstPageUnlocked && (
+            <div className="page-1">
+              <div className="cover">
+                <div className="sub-title">
+                  <p>WEDDING ANNOUNCEMENT</p>
+                </div>
+                <div className="title">
+                  <h2>Tiffany & Jared</h2>
+                  <h3>#TImetoshaRE</h3>
+                </div>
+                <button onClick={handleUnlockPage} className="unlock-btn">
+                  Open
+                </button>
               </div>
-              <div className="title">
-                <h2>Tiffany & Jared</h2>
-                <h3>#TImetoshaRE</h3>
-              </div>
-              <Button />
             </div>
-          </div>
+          )}
 
           <div id='page-2' className="page-2">
             <div className="cover">
@@ -50,6 +79,11 @@ function App() {
                 <h2>Tiffany & Jared</h2>
                 <h3>#TImetoshaRE</h3>
               </div>
+            </div>
+            <div className="button-container">
+              <a onClick={scrollToPage3}>
+                SCROLL TO BEGIN
+              </a>
             </div>
           </div>
 

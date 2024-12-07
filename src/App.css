@@ -90,13 +90,29 @@
 }
 
 .page-2 {
+    position: relative;
     height: 100vh;
     width: 100%;
     background-image: linear-gradient(rgb(50 48 48 / 50%), rgb(50 48 48 / 50%)), url('./assets/images/Slideshow-Cover-1.jpg');
     background-size: cover;
     background-position: calc(50%) 0px;
     animation: change 20s infinite ease-in-out;
-    animation-fill-mode: both;
+}
+
+.button-container {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+}
+
+.button-container a{
+    font-family: Poppins, serif;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.button-container a:focus{
+    color: #FEFEFE;
 }
 
 .cover {
@@ -149,14 +165,12 @@
     background-color: #FEFEFE;
     color: #1A1B1D;
     position: relative;
-    min-height: 100vh;
+    height: 100vh;
     text-align: center;
 }
 
 .opening {
-
     padding: 50px 0px 100px;
-
 }
 
 .opening .sub-title p {
@@ -186,49 +200,40 @@
     line-height: 1.5;
 }
 
-.img-corousel {
-    object-fit: cover;
-    object-position: center center;
-    height: 390px;
-    width: 280px;
-    border-width: 10px;
-    border-style: solid;
-}
-
 @keyframes slideUp {
     0% {
-      opacity: 0;
-      transform: translateY(50px);  /* Mulai dari bawah */
+        opacity: 0;
+        transform: translateY(50px);
     }
-    100% {
-      opacity: 1;
-      transform: translateY(0);  /* Berhenti di posisi normal */
-    }
-  }
 
-@keyframes change{
-    0%
-    {
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes change {
+    0% {
         background-image: linear-gradient(rgb(50 48 48 / 50%), rgb(50 48 48 / 50%)), url(./assets/images/Slideshow-Cover-1.jpg);
     }
-    20%
-    {
+
+    20% {
         background-image: linear-gradient(rgb(50 48 48 / 50%), rgb(50 48 48 / 50%)), url(./assets/images/Slideshow-Cover-2.jpg);
     }
-    40%
-    {
+
+    40% {
         background-image: linear-gradient(rgb(50 48 48 / 50%), rgb(50 48 48 / 50%)), url(./assets/images/Slideshow-Cover-3.jpg);
     }
-    60%
-    {
+
+    60% {
         background-image: linear-gradient(rgb(50 48 48 / 50%), rgb(50 48 48 / 50%)), url(./assets/images/Slideshow-Cover-4.jpg);
     }
-    80%
-    {
+
+    80% {
         background-image: linear-gradient(rgb(50 48 48 / 50%), rgb(50 48 48 / 50%)), url(./assets/images/Slideshow-Cover-5.jpg);
     }
-    100%
-    {
+
+    100% {
         background-image: linear-gradient(rgb(50 48 48 / 50%), rgb(50 48 48 / 50%)), url(./assets/images/Slideshow-Cover-1.jpg);
     }
 }
@@ -251,6 +256,3 @@
         display: none;
     }
 }
-
-@media (max-width: 425px) {}
-
