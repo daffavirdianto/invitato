@@ -12,7 +12,6 @@
     justify-content: center;
     align-items: stretch;
     width: 100%;
-    max-width: 1440px;
     height: 100vh;
     position: relative;
     overflow: hidden;
@@ -198,6 +197,22 @@
     margin-bottom: 18px;
     font-weight: 300;
     line-height: 1.5;
+}
+
+/* Carousel Style */
+.each-slide-effect > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    height: 390px;
+}
+  
+.each-slide-effect span {
+    padding: 20px;
+    font-size: 20px;
+    background: #efefef;
+    text-align: center;
 }
 
 @keyframes slideUp {

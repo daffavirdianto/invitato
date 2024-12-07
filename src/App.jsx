@@ -1,8 +1,8 @@
 import './App.css'
 import Desktop from './components/DesktopLeft'
-import Button from './components/Button'
 import sound from './assets/sound/sound.mp3'
 import React, { useState, useRef, useEffect } from 'react';
+import Carousel from './components/Carousel';
 
 function App() {
   const [isFirstPageUnlocked, setIsFirstPageUnlocked] = useState(false);
@@ -19,7 +19,6 @@ function App() {
         console.error("Error playing audio:", error);
       });
     }
-
   };
 
   const scrollToPage3 = () => {
@@ -51,8 +50,8 @@ function App() {
         <div className="desktop-left">
           <Desktop />
         </div>
-        <div className="desktop-right">
 
+        <div className="desktop-right">
         {!isFirstPageUnlocked && (
             <div className="page-1">
               <div className="cover">
@@ -69,7 +68,7 @@ function App() {
               </div>
             </div>
           )}
-
+          <audio ref={audioRef} src={sound} autoPlay hidden loop></audio>
           <div id='page-2' className="page-2">
             <div className="cover">
               <div className="sub-title">
@@ -108,9 +107,10 @@ function App() {
                   we joyfully announce the upcoming of our marriage.
                 </p>
               </div>
+
+              <Carousel></Carousel>
             </div>
           </div>
-
         </div>
       </div>
     </div>
