@@ -1,0 +1,256 @@
+.App {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    width: 100%;
+    max-width: 1440px;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.desktop-left {
+    display: flex;
+    background-image: linear-gradient(rgba(31, 31, 31, 0.5), rgba(31, 31, 31, 0.5)), url('./assets/images/Desktop.jpg');
+    background-size: cover;
+    background-position: calc(50%) 0px;
+    width: calc(100% - 500px);
+    min-height: 100vh;
+}
+
+.desktop-content {
+    color: #FEFEFE;
+    padding: 42px;
+}
+
+.desktop-content .sub-title p {
+    font-family: Poppins, serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: slideUp 1s ease-out forwards;
+}
+
+.desktop-content .title {
+    margin-top: 32px;
+}
+
+.desktop-content .title h2 {
+    font-family: Butler, sans-serif;
+    font-size: 72px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+}
+
+.desktop-content .desc p {
+    font-family: Newsreader, serif;
+    font-size: 16px;
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    padding-right: 40px;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: slideUp 1s ease-out forwards;
+}
+
+.desktop-right {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.page-1 {
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgb(50 48 48 / 50%), rgb(50 48 48 / 50%)), url('./assets/images/Slideshow-Cover-5.jpg');
+    background-size: cover;
+    background-position: calc(50%) 0px;
+}
+
+.page-2 {
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgb(50 48 48 / 50%), rgb(50 48 48 / 50%)), url('./assets/images/Slideshow-Cover-1.jpg');
+    background-size: cover;
+    background-position: calc(50%) 0px;
+    animation: change 20s infinite ease-in-out;
+    animation-fill-mode: both;
+}
+
+.cover {
+    min-height: 100vh;
+    padding: 2rem;
+    color: #FEFEFE;
+}
+
+.cover .sub-title {
+    padding: 60px 0 8px;
+}
+
+.cover .sub-title p {
+    font-family: Poppins, serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.cover .title {
+    display: flex;
+    flex-direction: column;
+    height: 340px;
+    justify-content: end;
+}
+
+.cover .title h2 {
+    font-family: Butler, sans-serif;
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 1;
+    text-transform: uppercase;
+    padding: 0;
+    margin: 0;
+}
+
+.cover .title h3 {
+    font-family: Butler, serif;
+    font-weight: 100;
+    font-size: 36px;
+    line-height: 1.5;
+    font-style: italic;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.page-3 {
+    background-color: #FEFEFE;
+    color: #1A1B1D;
+    position: relative;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.opening {
+
+    padding: 50px 0px 100px;
+
+}
+
+.opening .sub-title p {
+    font-size: 12px;
+    font-family: 'Poppins', serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.opening .title h2 {
+    font-family: 'Butler', serif;
+    padding: 24px 0px;
+    font-weight: 500;
+    font-size: 32px;
+    margin: 0;
+}
+
+.opening .desc p {
+    font-family: 'Newsreader', serif;
+    padding: 0px 15% 24px;
+    font-size: 18px;
+    font-style: italic;
+    margin-bottom: 18px;
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+.img-corousel {
+    object-fit: cover;
+    object-position: center center;
+    height: 390px;
+    width: 280px;
+    border-width: 10px;
+    border-style: solid;
+}
+
+@keyframes slideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);  /* Mulai dari bawah */
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);  /* Berhenti di posisi normal */
+    }
+  }
+
+@keyframes change{
+    0%
+    {
+        background-image: linear-gradient(rgb(50 48 48 / 50%), rgb(50 48 48 / 50%)), url(./assets/images/Slideshow-Cover-1.jpg);
+    }
+    20%
+    {
+        background-image: linear-gradient(rgb(50 48 48 / 50%), rgb(50 48 48 / 50%)), url(./assets/images/Slideshow-Cover-2.jpg);
+    }
+    40%
+    {
+        background-image: linear-gradient(rgb(50 48 48 / 50%), rgb(50 48 48 / 50%)), url(./assets/images/Slideshow-Cover-3.jpg);
+    }
+    60%
+    {
+        background-image: linear-gradient(rgb(50 48 48 / 50%), rgb(50 48 48 / 50%)), url(./assets/images/Slideshow-Cover-4.jpg);
+    }
+    80%
+    {
+        background-image: linear-gradient(rgb(50 48 48 / 50%), rgb(50 48 48 / 50%)), url(./assets/images/Slideshow-Cover-5.jpg);
+    }
+    100%
+    {
+        background-image: linear-gradient(rgb(50 48 48 / 50%), rgb(50 48 48 / 50%)), url(./assets/images/Slideshow-Cover-1.jpg);
+    }
+}
+
+@media (max-width: 1024px) and (min-width: 425px) {
+    .App {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        width: 100vw;
+    }
+
+    .desktop-left {
+        background: #FEFEFE;
+        width: 0;
+    }
+
+    .desktop-content {
+        display: none;
+    }
+}
+
+@media (max-width: 425px) {}
+
